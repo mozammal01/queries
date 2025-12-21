@@ -12,7 +12,7 @@ A SQL assignment demonstrating database design and query operations for a vehicl
 
 ## Queries & Solutions
 
-### 1. List All Bookings with Customer and Vehicle Details
+### 1. Retrieve booking information along with Customer name and Vehicle name.
 
 ```sql
 SELECT b.booking_id, u.name AS customer_name, v.name AS vehicle_name,
@@ -22,11 +22,9 @@ INNER JOIN users u ON b.user_id = u.user_id
 INNER JOIN vehicles v ON b.vehicle_id = v.vehicle_id;
 ```
 
-**Purpose:** Retrieves complete booking information by joining all three tables.
-
 ---
 
-### 2. Find Vehicles with No Bookings
+### 2. Find all vehicles that have never been booked.
 
 ```sql
 SELECT * FROM vehicles v
@@ -37,22 +35,18 @@ WHERE NOT EXISTS (
 ORDER BY v.vehicle_id;
 ```
 
-**Purpose:** Identifies vehicles that have never been booked using a subquery.
-
 ---
 
-### 3. Get Available Cars
+### 3. Retrieve all available vehicles of a specific type (e.g. cars).
 
 ```sql
 SELECT * FROM vehicles
 WHERE status = 'available' AND type = 'car';
 ```
 
-**Purpose:** Filters vehicles to show only cars that are currently available for rent.
-
 ---
 
-### 4. Vehicles with More Than 2 Bookings
+### 4. Find the total number of bookings for each vehicle and display only those vehicles that have more than 2 bookings.
 
 ```sql
 SELECT v.name AS vehicle_name, COUNT(b.booking_id) AS total_bookings
@@ -62,16 +56,14 @@ GROUP BY v.vehicle_id, v.name
 HAVING COUNT(b.booking_id) > 2;
 ```
 
-**Purpose:** Aggregates booking counts and filters for high-demand vehicles.
-
 ---
 
 ## How to Run
 
-1. Execute the table creation statements
-2. Insert the sample data
+1. Create the tables
+2. Insert the data
 3. Run the queries to see results
 
 ## Tech Stack
 
-- **Database:** PostgreSQL / MySQL
+- **Database:** PostgreSQL 
