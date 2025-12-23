@@ -77,21 +77,6 @@ Status options: `pending`, `confirmed`, `completed`
 
 ---
 
-## Setup
-
-**Requirements:** PostgreSQL
-
-Run the SQL file:
-
-```bash
-psql -U username -d database_name -f queries.sql
-```
-
-Or open `queries.sql` in pgAdmin and execute.
-
----
-
 ## Tech Stack
 
 - PostgreSQL
-- SQL
